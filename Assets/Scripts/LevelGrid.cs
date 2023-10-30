@@ -50,4 +50,19 @@ public class LevelGrid : MonoBehaviour
         AddUnitAtGridPosition(toGridPosition, unit);
     }
     public GridPosition GetGridPosition(Vector3 worldPosition) => gridSystem.GetGridPosition(worldPosition); //=> aixo fa un return
+
+    public Vector3 GetWorldPosition(GridPosition gridPosition) => gridSystem.GetWorldPosition(gridPosition);
+    public bool IsValidGRidPosition(GridPosition gridPosition) => gridSystem.IsValidGRidPosition(gridPosition);
+
+    public int GetWidth()=>gridSystem.GetWidth();
+
+    public int GetHeight()=>gridSystem.GetHeight();
+
+    public bool HasAnyUnitOnGridPosition(GridPosition gridPosition)
+    {
+        GridObject gridObject = gridSystem.GetGridObject(gridPosition);
+        return gridObject.HasAnyUnit();
+    }
+
+
 }
