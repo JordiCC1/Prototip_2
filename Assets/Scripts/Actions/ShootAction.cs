@@ -8,6 +8,13 @@ using UnityEngine.EventSystems;
 public class ShootAction : BaseAction
 {
 
+    public event EventHandler<OnShootEventArgs> OnShoot;
+
+    public class OnShootEventArgs : EventArgs
+    {
+        public Unit targetUnit;
+        public Unit shootingUnit;
+    }
     private enum State { Aiming,Shooting,Cooloff}
 
     private State state;
@@ -85,7 +92,9 @@ public class ShootAction : BaseAction
 
     private void Shoot()
     {
-        targetUnit.Damage();
+        OnShoot?.Invoke(this, new OnShootEventArgs { targetUnit = targetUnit, shootingUnit = unit});
+
+        targetUnit.Damage(40);
     }
     public override string GetActionName()
     {
