@@ -29,13 +29,13 @@ public class Unit : MonoBehaviour
         moveAction = GetComponent<MoveAction>();
         spinAction = GetComponent<SpinAction>();
         baseActionArray = GetComponents<BaseAction>();
+        actionPoints = ACTION_POINTS_MAX;
     }
 
     private void Start()
     {
         gridPosition = LevelGrid.Instance.GetGridPosition(transform.position);
 
-        actionPoints = ACTION_POINTS_MAX;
 
         LevelGrid.Instance.AddUnitAtGridPosition(gridPosition, this);
         TurnSystem.Instance.OnTurnChanged += TurnSystem_OnTurnChanged;
@@ -50,8 +50,10 @@ public class Unit : MonoBehaviour
         if(newGridPosition != gridPosition)
         {
             //Unit changed grid position
-            LevelGrid.Instance.UnitMoveGridPosition(this,gridPosition, newGridPosition);
+            GridPosition oldGridPosition = gridPosition;
             gridPosition = newGridPosition;
+
+            LevelGrid.Instance.UnitMoveGridPosition(this, oldGridPosition, newGridPosition);
         }
     }
 
