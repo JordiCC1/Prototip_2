@@ -31,6 +31,7 @@ public class TurnSystemUI : MonoBehaviour
         UpdateEnemyTurnVisual();
         UpdateEndTurnButtonVisibility();
     }
+
     private void UpdateTurnText()
     {
         turnNumberText.text = "TURN " + TurnSystem.Instance.GetTurnNumber();

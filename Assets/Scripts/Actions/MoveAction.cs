@@ -74,11 +74,11 @@ public class MoveAction : BaseAction
                     continue;
                 }
 
-                int testDistance = Mathf.Abs(x) + Mathf.Abs(z);
-                if (testDistance > maxMoveDistance)
-                {
-                    continue;
-                }
+                //int testDistance = Mathf.Abs(x) + Mathf.Abs(z);
+                //if (testDistance > maxMoveDistance)
+                //{
+                //    continue;
+                //}
 
                 if (unitGridPosition == testGridPosition)
                 {
