@@ -7,6 +7,7 @@ public class PlacementManager : MonoBehaviour
 {
     public int width, height;
     Grid placementGrid;
+    public ResourceManager resourceManager;
 
     private Dictionary<Vector3Int, StructureModel> temporaryRoadobjects = new Dictionary<Vector3Int, StructureModel>();
     private Dictionary<Vector3Int, StructureModel> structureDictionary = new Dictionary<Vector3Int, StructureModel>();
@@ -31,7 +32,7 @@ public class PlacementManager : MonoBehaviour
     }
 
     internal void PlaceObjectOnTheMap(Vector3Int position, GameObject structurePrefab, CellType type)
-    {
+    {            
         placementGrid[position.x, position.z] = type;
         StructureModel structure = CreateANewStructureModel(position, structurePrefab, type);
         structureDictionary.Add(position, structure);
@@ -59,9 +60,31 @@ public class PlacementManager : MonoBehaviour
 
     internal void PlaceTemporaryStructure(Vector3Int position, GameObject structurePrefab, CellType type)
     {
+        if ((resourceManager.currentMaterial < 5 && type == CellType.Road) ||
+            (resourceManager.currentMaterial < 10 && type == CellType.Structure) ||
+            (resourceManager.currentMaterial < 20 && type == CellType.SpecialStructure))
+        {
+            return;
+        }
+
         placementGrid[position.x, position.z] = type;
         StructureModel structure = CreateANewStructureModel(position, structurePrefab, type);
         temporaryRoadobjects.Add(position, structure);
+
+        if (placementGrid[position.x, position.z] == CellType.Road)
+        {
+            resourceManager.ChangeMaterial(-5);
+        }
+        if (placementGrid[position.x, position.z] == CellType.Structure)
+        {
+            resourceManager.ChangeMaterial(-10);
+            resourceManager.ChangePeople(10);
+        }
+        if (placementGrid[position.x, position.z] == CellType.SpecialStructure)
+        {
+            resourceManager.ChangeMaterial(-20);
+            resourceManager.ChangeFood(100);
+        }
     }
 
     internal List<Vector3Int> GetNeighboursOfTypeFor(Vector3Int position, CellType type)

@@ -14,6 +14,8 @@ public class GameManager : MonoBehaviour
 
     public StructureManager structureManager;
 
+    public ResourceManager resourceManager;
+
     private void Start()
     {
         uiController.OnRoadPlacement += RoadPlacementHandler;
