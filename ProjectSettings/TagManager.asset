@@ -13,8 +13,13 @@ TagManager:
   - UI
   - MousePlane
   - UnitsLayer
+<<<<<<< HEAD
   - Obstacle
   - 
+=======
+  - Nature
+  - Ground
+>>>>>>> feature/Poblat
   - 
   - 
   - 
