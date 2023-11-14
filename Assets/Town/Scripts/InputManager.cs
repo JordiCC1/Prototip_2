@@ -24,7 +24,7 @@ public class InputManager : MonoBehaviour
 	{
 		CheckClickDownEvent();
 		CheckClickUpEvent();
-		CheckClickHoldEvent();
+		//CheckClickHoldEvent();
 		CheckArrowInput();
 	}
 

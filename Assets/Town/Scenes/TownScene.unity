@@ -6120,6 +6120,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   width: 15
   height: 15
+  resourceManager: {fileID: 807077268}
 --- !u!4 &540532164
 Transform:
   m_ObjectHideFlags: 0
@@ -26701,6 +26702,7 @@ MonoBehaviour:
   inputManager: {fileID: 1916978682}
   uiController: {fileID: 681313529}
   structureManager: {fileID: 1665687342}
+  resourceManager: {fileID: 807077268}
 --- !u!4 &2039921796
 Transform:
   m_ObjectHideFlags: 0
