@@ -22,6 +22,10 @@ public class UnitAnimator : MonoBehaviour
         {
             shootAction.OnShoot += ShootAction_OnShoot;
         }
+        if (TryGetComponent<MeleeAction>(out MeleeAction meleeAction))
+        {
+            meleeAction.OnMelee += MeleeAction_OnMelee;
+        }
     }
 
     private void MoveAction_OnStartMoving(object sender, EventArgs e)
@@ -45,5 +49,10 @@ public class UnitAnimator : MonoBehaviour
         targetUnitShootAtPosition.y = shootPointTransform.position.y;
 
         bulletProjectile.Setup(targetUnitShootAtPosition);
+    }
+
+    private void MeleeAction_OnMelee(object sender, MeleeAction.OnMeleeEventArgs e)
+    {
+        animator.SetTrigger("Shoot");        
     }
 }
