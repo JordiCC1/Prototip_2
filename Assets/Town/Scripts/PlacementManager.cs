@@ -60,31 +60,11 @@ public class PlacementManager : MonoBehaviour
 
     internal void PlaceTemporaryStructure(Vector3Int position, GameObject structurePrefab, CellType type)
     {
-        if ((resourceManager.currentMaterial < 5 && type == CellType.Road) ||
-            (resourceManager.currentMaterial < 10 && type == CellType.Structure) ||
-            (resourceManager.currentMaterial < 20 && type == CellType.SpecialStructure))
-        {
-            return;
-        }
-
         placementGrid[position.x, position.z] = type;
         StructureModel structure = CreateANewStructureModel(position, structurePrefab, type);
         temporaryRoadobjects.Add(position, structure);
 
-        if (placementGrid[position.x, position.z] == CellType.Road)
-        {
-            resourceManager.ChangeMaterial(-5);
-        }
-        if (placementGrid[position.x, position.z] == CellType.Structure)
-        {
-            resourceManager.ChangeMaterial(-10);
-            resourceManager.ChangePeople(10);
-        }
-        if (placementGrid[position.x, position.z] == CellType.SpecialStructure)
-        {
-            resourceManager.ChangeMaterial(-20);
-            resourceManager.ChangeFood(100);
-        }
+        
     }
 
     internal List<Vector3Int> GetNeighboursOfTypeFor(Vector3Int position, CellType type)
@@ -100,11 +80,37 @@ public class PlacementManager : MonoBehaviour
 
     private StructureModel CreateANewStructureModel(Vector3Int position, GameObject structurePrefab, CellType type)
     {
+        if ((resourceManager.currentMaterial < 5 && type == CellType.Road) ||
+            (resourceManager.currentMaterial < 10 && type == CellType.Structure) ||
+            (resourceManager.currentMaterial < 20 && type == CellType.SpecialStructure))
+        {
+            return null;
+        }
+
         GameObject structure = new GameObject(type.ToString());
         structure.transform.SetParent(transform);
         structure.transform.localPosition = position;
         var structureModel = structure.AddComponent<StructureModel>();
         structureModel.CreateModel(structurePrefab);
+
+        if (placementGrid[position.x, position.z] == CellType.Road)
+        {
+            resourceManager.ChangeMaterial(-5);
+        }
+        if (placementGrid[position.x, position.z] == CellType.Structure)
+        {
+            resourceManager.ChangeMaterial(-10);
+            resourceManager.ChangeMaxPeople(10);
+        }
+        if (placementGrid[position.x, position.z] == CellType.SpecialStructure)
+        {
+            resourceManager.ChangeMaterial(-20);
+            resourceManager.ChangeMaxFood(100);
+        }
+
+        Debug.Log(type.ToString());
+
+
         return structureModel;
     }
 

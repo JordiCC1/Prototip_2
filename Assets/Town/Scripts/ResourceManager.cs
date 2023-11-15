@@ -26,16 +26,14 @@ public class ResourceManager : MonoBehaviour
         currentPeople = totalPeople;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        //ChangeFood(currentPeople / 10 * Time.deltaTime);
-    }
-
     public void ChangeFood(float amount)
     {
         float temp = currentFood + amount;
         currentFood = Mathf.Clamp(temp, 0, totalFood);
+    }
+    public void ChangeMaxFood(float amount)
+    {
+        totalFood += amount;
     }
     public void ChangeMaterial(float amount)
     {
@@ -43,9 +41,17 @@ public class ResourceManager : MonoBehaviour
         currentMaterial = Mathf.Clamp(temp, 0, totalMaterial);
 
     }
+    public void ChangeMaxMaterial(float amount)
+    {
+        totalMaterial += amount;
+    }
     public void ChangePeople(float amount)
     {
         float temp = currentPeople + amount;
         currentPeople = Mathf.Clamp(temp, 0, totalPeople);
+    }
+    public void ChangeMaxPeople(float amount)
+    {
+        totalPeople += amount;
     }
 }
