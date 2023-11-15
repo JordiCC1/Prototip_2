@@ -19,7 +19,7 @@ public class ShootAction : BaseAction
 
     [SerializeField] private LayerMask obstaclesLayerMask;
     private State state;
-    private int maxShootDistance = 7;
+    [SerializeField] private int maxShootDistance = 7;
     private float stateTimer;
     private Unit targetUnit;
     private bool canShootBullet;
