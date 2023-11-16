@@ -39,6 +39,7 @@ public class PlacementManager : MonoBehaviour
         {
             structureDictionary.Add(position, structure);
             DestroyNatureAt(position);
+            Debug.Log(type);
         }
         else
         {
@@ -108,12 +109,13 @@ public class PlacementManager : MonoBehaviour
         if (placementGrid[position.x, position.z] == CellType.Structure)
         {
             resourceManager.ChangeMaterial(-10);
+            resourceManager.ChangeFood(10);
             resourceManager.ChangeMaxPeople(10);
         }
         if (placementGrid[position.x, position.z] == CellType.SpecialStructure)
         {
-            resourceManager.ChangeMaterial(-20);
-            resourceManager.ChangeMaxFood(100);
+            resourceManager.ChangeMaterial(-25);
+            resourceManager.ChangeAttackBonus(25);
         }
 
         Debug.Log(type.ToString());
