@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 989
   m_ShowMode: 4
-  m_Title: Hierarchy
+  m_Title: Game
   m_RootView: {fileID: 3}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -146,7 +146,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 39
+  controlID: 84
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -671,9 +671,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -0.11876106, y: -6.461055, z: 11.5663185}
+    m_Target: {x: 7.655505, y: -9.662558, z: 7.0817995}
     speed: 2
-    m_Value: {x: -0.11876106, y: -6.461055, z: 11.5663185}
+    m_Value: {x: 7.655505, y: -9.662558, z: 7.0817995}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -719,9 +719,9 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: -0.2859458, y: 0.6677868, z: -0.31178108, w: -0.61244667}
+    m_Target: {x: -0.1997913, y: 0.7745325, z: -0.5217496, w: -0.29658628}
     speed: 2
-    m_Value: {x: -0.28594548, y: 0.667786, z: -0.31178072, w: -0.61244595}
+    m_Value: {x: -0.19979097, y: 0.7745312, z: -0.5217487, w: -0.29658577}
   m_Size:
     m_Target: 10
     speed: 2
@@ -861,9 +861,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 
-      m_LastClickedID: 0
-      m_ExpandedIDs: 0afbffff
+      m_SelectedIDs: 987b0000
+      m_LastClickedID: 31640
+      m_ExpandedIDs: fefaffff
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -949,9 +949,9 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 429}
-    m_SelectedIDs: 36830000
-    m_LastClickedID: 33590
-    m_ExpandedIDs: 0000000060810000628100006481000066810000688100006a8100006c8100006e8100007081000000ca9a3b
+    m_SelectedIDs: 3e830000
+    m_LastClickedID: 33598
+    m_ExpandedIDs: 00000000628100006481000066810000688100006a8100006c8100006e810000708100007281000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -979,7 +979,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 0000000060810000628100006481000066810000688100006a8100006c8100006e81000070810000
+    m_ExpandedIDs: 00000000628100006481000066810000688100006a8100006c8100006e8100007081000072810000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1004,8 +1004,8 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 967b0000
-    m_LastClickedInstanceID: 31638
+    m_SelectedInstanceIDs: 7e690000
+    m_LastClickedInstanceID: 27006
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000
     m_RenameOverlay:
@@ -1107,7 +1107,7 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 31638
+  m_LastSelectedObjectID: 31640
 --- !u!114 &18
 MonoBehaviour:
   m_ObjectHideFlags: 52

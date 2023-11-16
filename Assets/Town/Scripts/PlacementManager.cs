@@ -35,8 +35,16 @@ public class PlacementManager : MonoBehaviour
     {            
         placementGrid[position.x, position.z] = type;
         StructureModel structure = CreateANewStructureModel(position, structurePrefab, type);
-        structureDictionary.Add(position, structure);
-        DestroyNatureAt(position);
+        if(structure != null)
+        {
+            structureDictionary.Add(position, structure);
+            DestroyNatureAt(position);
+        }
+        else
+        {
+            placementGrid[position.x, position.z] = CellType.Empty;
+        }
+        
     }
 
     private void DestroyNatureAt(Vector3Int position)
