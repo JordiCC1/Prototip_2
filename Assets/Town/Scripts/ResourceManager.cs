@@ -13,6 +13,9 @@ public class ResourceManager : MonoBehaviour
 
     public float totalPeople;
     public float currentPeople;
+
+    public float attackBonus;
+    public float healthBonus;
     
 
     // Start is called before the first frame update
@@ -24,12 +27,9 @@ public class ResourceManager : MonoBehaviour
         currentFood = totalFood;
         currentMaterial = totalMaterial;
         currentPeople = totalPeople;
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        //ChangeFood(currentPeople / 10 * Time.deltaTime);
+        attackBonus = 0.0f;
+        healthBonus = 0.0f;
     }
 
     public void ChangeFood(float amount)
@@ -37,15 +37,37 @@ public class ResourceManager : MonoBehaviour
         float temp = currentFood + amount;
         currentFood = Mathf.Clamp(temp, 0, totalFood);
     }
+    public void ChangeMaxFood(float amount)
+    {
+        totalFood += amount;
+    }
     public void ChangeMaterial(float amount)
     {
         float temp = currentMaterial + amount;
         currentMaterial = Mathf.Clamp(temp, 0, totalMaterial);
 
     }
+    public void ChangeMaxMaterial(float amount)
+    {
+        totalMaterial += amount;
+    }
     public void ChangePeople(float amount)
     {
         float temp = currentPeople + amount;
         currentPeople = Mathf.Clamp(temp, 0, totalPeople);
+    }
+    public void ChangeMaxPeople(float amount)
+    {
+        totalPeople += amount;
+    }
+
+    public void ChangeAttackBonus(float amount)
+    {
+        attackBonus += amount;
+    }
+
+    public void ChangeHealthBonus(float amount)
+    {
+        healthBonus += amount;
     }
 }
