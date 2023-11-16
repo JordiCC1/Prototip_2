@@ -124,6 +124,14 @@ public class GridSystemVisual : MonoBehaviour
                 gridVisualType = GridVisualType.Red;
                 ShowGridPositionRange(selectedUnit.GetGridPosition(), shootAction.GetMaxShootDistance(), GridVisualType.RedSoft);
                 break;
+            case MeleeAction meleeAction:
+                gridVisualType = GridVisualType.Red;
+                ShowGridPositionRange(selectedUnit.GetGridPosition(), meleeAction.GetMaxShootDistance(), GridVisualType.RedSoft);
+                break;
+            case SpearAction spearAction:
+                gridVisualType = GridVisualType.Red;
+                ShowGridPositionRange(selectedUnit.GetGridPosition(), spearAction.GetMaxShootDistance(), GridVisualType.RedSoft);
+                break;
 
         }
 

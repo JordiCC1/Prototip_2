@@ -21,6 +21,8 @@ public class Unit : MonoBehaviour
     private MoveAction moveAction;
     private SpinAction spinAction;
     private ShootAction shootAction;
+    private MeleeAction meleeAction;
+    private SpearAction spearAction;
     private BaseAction[] baseActionArray;
 
     private int actionPoints;
@@ -75,6 +77,16 @@ public class Unit : MonoBehaviour
     public ShootAction GetShootAction()
     {
         return shootAction;
+    }
+
+    public MeleeAction GetMeleeAction()
+    {
+        return meleeAction;
+    }
+
+    public SpearAction GetSpearAction()
+    {
+        return spearAction;
     }
 
     public GridPosition GetGridPosition() 
