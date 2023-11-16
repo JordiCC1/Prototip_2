@@ -18,6 +18,7 @@ public class MeleeAction : BaseAction
     private enum State { Aiming,Shooting,Cooloff}
 
     [SerializeField] private LayerMask obstaclesLayerMask;
+    [SerializeField] private int damage;
     private State state;
     private int maxShootDistance = 1;
     private float stateTimer;
@@ -95,7 +96,7 @@ public class MeleeAction : BaseAction
     {
         OnMelee?.Invoke(this, new OnMeleeEventArgs { targetUnit = targetUnit, shootingUnit = unit});
 
-        targetUnit.Damage(60);
+        targetUnit.Damage(damage);
     }
     public override string GetActionName()
     {

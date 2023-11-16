@@ -20,6 +20,8 @@ public class ShootAction : BaseAction
     [SerializeField] private LayerMask obstaclesLayerMask;
     private State state;
     [SerializeField] private int maxShootDistance = 7;
+    [SerializeField] private int damage;
+
     private float stateTimer;
     private Unit targetUnit;
     private bool canShootBullet;
@@ -95,7 +97,7 @@ public class ShootAction : BaseAction
     {
         OnShoot?.Invoke(this, new OnShootEventArgs { targetUnit = targetUnit, shootingUnit = unit});
 
-        targetUnit.Damage(40);
+        targetUnit.Damage(damage);
     }
     public override string GetActionName()
     {
