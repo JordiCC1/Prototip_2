@@ -108,14 +108,16 @@ public class PlacementManager : MonoBehaviour
         }
         if (placementGrid[position.x, position.z] == CellType.Structure)
         {
-            resourceManager.ChangeMaterial(-10);
-            resourceManager.ChangeFood(10);
-            resourceManager.ChangeMaxPeople(10);
+            resourceManager.ChangePeople(-10);
+            resourceManager.ChangeFood(-10);
+            resourceManager.ChangeHealthBonus(10);
+
         }
         if (placementGrid[position.x, position.z] == CellType.SpecialStructure)
         {
-            resourceManager.ChangeMaterial(-25);
-            resourceManager.ChangeAttackBonus(25);
+            resourceManager.ChangePeople(-5);
+            resourceManager.ChangeMaterial(-20);
+            resourceManager.ChangeAttackBonus(10);
         }
 
         Debug.Log(type.ToString());

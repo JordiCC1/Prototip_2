@@ -15,6 +15,7 @@ public class ResourceManager : MonoBehaviour
     public float currentPeople;
 
     public float attackBonus;
+    public float healthBonus;
     
 
     // Start is called before the first frame update
@@ -28,6 +29,7 @@ public class ResourceManager : MonoBehaviour
         currentPeople = totalPeople;
 
         attackBonus = 0.0f;
+        healthBonus = 0.0f;
     }
 
     public void ChangeFood(float amount)
@@ -62,5 +64,10 @@ public class ResourceManager : MonoBehaviour
     public void ChangeAttackBonus(float amount)
     {
         attackBonus += amount;
+    }
+
+    public void ChangeHealthBonus(float amount)
+    {
+        healthBonus += amount;
     }
 }
