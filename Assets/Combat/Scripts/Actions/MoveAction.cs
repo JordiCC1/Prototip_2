@@ -128,10 +128,27 @@ public class MoveAction : BaseAction
         
         int targetCountAtGridPosition = unit.GetShootAction().GetTargetCountAtPosition(gridPosition);
 
-        Debug.Log(gridPosition);
+        List<Unit> targetUnitList = UnitManager.Instance.GetFriendlyUnitList();
+        Vector3 unitPosition = LevelGrid.Instance.GetWorldPosition(gridPosition);
+        Vector3 targetUnitPosition = new Vector3(0,0,0);
+
+        foreach(Unit targetUnit in targetUnitList)
+        {
+            Vector3 test = targetUnit.GetWorldPosition();
+            if(Vector3.Distance(test, unitPosition) < Vector3.Distance(targetUnitPosition, unitPosition))
+            {
+                targetUnitPosition = test;
+            }
+        }
+
+        
+        GridPosition closestPosition = LevelGrid.Instance.GetGridPosition(targetUnitPosition);
+
+        closestPosition.z++;
+
         return new EnemyAIAction
         {
-            gridPosition = gridPosition,
+            gridPosition = closestPosition,
             actionValue = targetCountAtGridPosition * 10,
         };
     }
