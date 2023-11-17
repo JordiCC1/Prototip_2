@@ -74,7 +74,7 @@ public class GridSystemVisual : MonoBehaviour
 
                 GridPosition testGridPosition = gridPosition + new GridPosition(x, z);
 
-                if (!LevelGrid.Instance.IsValidGRidPosition(testGridPosition))
+                if (!LevelGrid.Instance.IsValidGridPosition(testGridPosition))
                 {
                     continue;
                 }

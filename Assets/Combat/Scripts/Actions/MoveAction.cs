@@ -80,7 +80,7 @@ public class MoveAction : BaseAction
                 GridPosition offsetGridPosition = new GridPosition(x,z);
                 GridPosition testGridPosition = unitGridPosition + offsetGridPosition;
 
-                if(!LevelGrid.Instance.IsValidGRidPosition(testGridPosition))
+                if(!LevelGrid.Instance.IsValidGridPosition(testGridPosition))
                 {
                     continue;
                 }
@@ -144,7 +144,12 @@ public class MoveAction : BaseAction
         
         GridPosition closestPosition = LevelGrid.Instance.GetGridPosition(targetUnitPosition);
 
-        closestPosition.z++;
+        if(LevelGrid.Instance.HasAnyUnitOnGridPosition(closestPosition)) 
+        {
+            Debug.Log(transform);
+            closestPosition.z++;
+            LevelGrid.Instance.AddUnitAtGridPosition(closestPosition,GetUnit());
+        }
 
         return new EnemyAIAction
         {
