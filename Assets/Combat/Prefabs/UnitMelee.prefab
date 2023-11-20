@@ -132,7 +132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43da7b4103528c447a10849def8478df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ACTION_POINTS_MAX: 2
+  ACTION_POINTS_MAX: 3
   isEnemy: 0
 --- !u!65 &7676711072855987943
 BoxCollider:

@@ -127,7 +127,7 @@ public class MoveAction : BaseAction
     {
         
         int targetCountAtGridPosition = unit.GetShootAction().GetTargetCountAtPosition(gridPosition);
-
+        /*
         List<Unit> targetUnitList = UnitManager.Instance.GetFriendlyUnitList();
         
         Vector3 unitPosition = LevelGrid.Instance.GetWorldPosition(gridPosition);
@@ -150,10 +150,10 @@ public class MoveAction : BaseAction
             closestPosition.z++;
             LevelGrid.Instance.AddUnitAtGridPosition(closestPosition, GetUnit());
         }
-
+        */
         return new EnemyAIAction
         {
-            gridPosition = closestPosition,
+            gridPosition = gridPosition,
             actionValue = targetCountAtGridPosition * 10,
         };
     }
