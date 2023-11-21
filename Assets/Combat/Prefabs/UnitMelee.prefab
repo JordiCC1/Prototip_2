@@ -59,7 +59,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.16983688, g: 1, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -88,6 +88,7 @@ GameObject:
   - component: {fileID: 5153786764167368597}
   - component: {fileID: 7676711072855987943}
   - component: {fileID: 3042502928802470522}
+  - component: {fileID: 42809579489817700}
   - component: {fileID: 8941267016077318148}
   - component: {fileID: 7765436246264780613}
   - component: {fileID: 4381730111416334077}
@@ -131,7 +132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43da7b4103528c447a10849def8478df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ACTION_POINTS_MAX: 2
+  ACTION_POINTS_MAX: 3
   isEnemy: 0
 --- !u!65 &7676711072855987943
 BoxCollider:
@@ -167,6 +168,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxMoveDistance: 4
+--- !u!114 &42809579489817700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5153786764167368595}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb606037cb9a77949a650a24e53638df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obstaclesLayerMask:
+    serializedVersion: 2
+    m_Bits: 256
+  damage: 60
 --- !u!114 &8941267016077318148
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194,6 +211,8 @@ MonoBehaviour:
   obstaclesLayerMask:
     serializedVersion: 2
     m_Bits: 256
+  maxShootDistance: 7
+  damage: 0
 --- !u!114 &4381730111416334077
 MonoBehaviour:
   m_ObjectHideFlags: 0

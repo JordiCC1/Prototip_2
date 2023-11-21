@@ -93,6 +93,16 @@ PrefabInstance:
       propertyPath: obstaclesLayerMask.m_Bits
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 8733862169778039636, guid: 5b3d57c1b94b2314480b830a0663e2e1,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8733862169778039636, guid: 5b3d57c1b94b2314480b830a0663e2e1,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

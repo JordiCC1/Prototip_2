@@ -18,6 +18,7 @@ public class SpearAction : BaseAction
     private enum State { Aiming,Shooting,Cooloff}
 
     [SerializeField] private LayerMask obstaclesLayerMask;
+    [SerializeField] private int damage;
     private State state;
     private int maxShootDistance = 2;
     private float stateTimer;
@@ -95,7 +96,7 @@ public class SpearAction : BaseAction
     {
         OnMeleeSpear?.Invoke(this, new OnMeleeEventArgs { targetUnit = targetUnit, shootingUnit = unit});
 
-        targetUnit.Damage(60);
+        targetUnit.Damage(damage);
     }
     public override string GetActionName()
     {
@@ -120,7 +121,7 @@ public class SpearAction : BaseAction
                 GridPosition offsetGridPosition = new GridPosition(x, z);
                 GridPosition testGridPosition = unitGridPosition + offsetGridPosition;
 
-                if (!LevelGrid.Instance.IsValidGRidPosition(testGridPosition))
+                if (!LevelGrid.Instance.IsValidGridPosition(testGridPosition))
                 {
                     continue;
                 }               
@@ -188,7 +189,7 @@ public class SpearAction : BaseAction
         return new EnemyAIAction
         {
             gridPosition = gridPosition,
-            actionValue = 100 + Mathf.RoundToInt((1 - targetUnit.GetHealthNormalized()) * 100f),
+            actionValue = 120 + Mathf.RoundToInt((1 - targetUnit.GetHealthNormalized()) * 100f),
         };
     }
 
