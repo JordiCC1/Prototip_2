@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UnitManager : MonoBehaviour
 {
@@ -60,10 +61,18 @@ public class UnitManager : MonoBehaviour
         if (unit.IsEnemy())
         {
             enemyUnitList.Remove(unit);
+            if(enemyUnitList.Count == 0)
+            {
+                SceneManager.LoadScene("TownScene");
+            }
         }
         else
         {
             friendlyUnitList.Remove(unit);
+            if (friendlyUnitList.Count == 0)
+            {
+                SceneManager.LoadScene("TownScene");
+            }
         }
     }
 
