@@ -117,7 +117,7 @@ public class UnitActionSystem : MonoBehaviour
         return false;
     }
 
-    private void SetSelectedUnit(Unit unit) 
+    public void SetSelectedUnit(Unit unit) 
     { 
         selectedUnit = unit;
 

@@ -20,7 +20,8 @@ public class LevelScripting : MonoBehaviour
         
             SetActiveGameObjectList(hider2List, true);        
             SetActiveGameObjectList(hider3List, true);
-            //SetActiveGameObjectList(enemy2List, true);
+            SetActiveGameObjectList(enemy1List, false);
+            SetActiveGameObjectList(enemy2List, false);
         
     }
 
