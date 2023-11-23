@@ -14,6 +14,7 @@ public class UnitManager : MonoBehaviour
     private List<Unit> friendlyUnitList;
     private List<Unit> enemyUnitList;
 
+    [SerializeField]private int enemiesCount;
 
     private void Awake()
     {
@@ -60,18 +61,24 @@ public class UnitManager : MonoBehaviour
 
         if (unit.IsEnemy())
         {
+            enemiesCount--;
             enemyUnitList.Remove(unit);
-            if(enemyUnitList.Count == 0)
+            if(enemyUnitList.Count == 0 && enemiesCount == 0)
             {
                 SceneManager.LoadScene("TownScene");
             }
         }
         else
         {
-            friendlyUnitList.Remove(unit);
             if (friendlyUnitList.Count == 0)
             {
                 SceneManager.LoadScene("TownScene");
+            }
+            if(unit == UnitActionSystem.Instance.GetSelectedUnit())
+            {
+                friendlyUnitList.Remove(unit);
+                Unit newSelectedUnit = friendlyUnitList[0];
+                UnitActionSystem.Instance.SetSelectedUnit(newSelectedUnit);
             }
         }
     }
