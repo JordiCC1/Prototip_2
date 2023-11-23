@@ -9,6 +9,7 @@ public class UnitManager : MonoBehaviour
 
 
     public static UnitManager Instance { get; private set; }
+    public Menu menu;
 
     private List<Unit> unitList;
     private List<Unit> friendlyUnitList;
@@ -63,7 +64,7 @@ public class UnitManager : MonoBehaviour
             enemyUnitList.Remove(unit);
             if(enemyUnitList.Count == 0)
             {
-                SceneManager.LoadScene("TownScene");
+                menu.ChangeScene("TownScene");
             }
         }
         else
@@ -71,7 +72,7 @@ public class UnitManager : MonoBehaviour
             friendlyUnitList.Remove(unit);
             if (friendlyUnitList.Count == 0)
             {
-                SceneManager.LoadScene("TownScene");
+                menu.ChangeScene("TownScene");
             }
         }
     }
