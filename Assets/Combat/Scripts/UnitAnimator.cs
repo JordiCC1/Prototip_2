@@ -22,6 +22,14 @@ public class UnitAnimator : MonoBehaviour
         {
             shootAction.OnShoot += ShootAction_OnShoot;
         }
+        if (TryGetComponent<MeleeAction>(out MeleeAction meleeAction))
+        {
+            meleeAction.OnMelee += MeleeAction_OnMelee;
+        }
+        if (TryGetComponent<SpearAction>(out SpearAction spearAction))
+        {
+            spearAction.OnMeleeSpear += Spearction_OnMeleeSpear;
+        }
     }
 
     private void MoveAction_OnStartMoving(object sender, EventArgs e)
@@ -45,5 +53,15 @@ public class UnitAnimator : MonoBehaviour
         targetUnitShootAtPosition.y = shootPointTransform.position.y;
 
         bulletProjectile.Setup(targetUnitShootAtPosition);
+    }
+
+    private void MeleeAction_OnMelee(object sender, MeleeAction.OnMeleeEventArgs e)
+    {
+        animator.SetTrigger("Shoot");        
+    }
+
+    private void Spearction_OnMeleeSpear(object sender, SpearAction.OnMeleeEventArgs e)
+    {
+        animator.SetTrigger("Shoot");
     }
 }

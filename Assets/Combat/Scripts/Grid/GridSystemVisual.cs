@@ -74,7 +74,7 @@ public class GridSystemVisual : MonoBehaviour
 
                 GridPosition testGridPosition = gridPosition + new GridPosition(x, z);
 
-                if (!LevelGrid.Instance.IsValidGRidPosition(testGridPosition))
+                if (!LevelGrid.Instance.IsValidGridPosition(testGridPosition))
                 {
                     continue;
                 }
@@ -123,6 +123,14 @@ public class GridSystemVisual : MonoBehaviour
             case ShootAction shootAction:
                 gridVisualType = GridVisualType.Red;
                 ShowGridPositionRange(selectedUnit.GetGridPosition(), shootAction.GetMaxShootDistance(), GridVisualType.RedSoft);
+                break;
+            case MeleeAction meleeAction:
+                gridVisualType = GridVisualType.Red;
+                ShowGridPositionRange(selectedUnit.GetGridPosition(), meleeAction.GetMaxShootDistance(), GridVisualType.RedSoft);
+                break;
+            case SpearAction spearAction:
+                gridVisualType = GridVisualType.Red;
+                ShowGridPositionRange(selectedUnit.GetGridPosition(), spearAction.GetMaxShootDistance(), GridVisualType.RedSoft);
                 break;
 
         }

@@ -2,12 +2,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UnitManager : MonoBehaviour
 {
 
 
     public static UnitManager Instance { get; private set; }
+    public Menu menu;
 
     private List<Unit> unitList;
     private List<Unit> friendlyUnitList;
@@ -42,7 +44,7 @@ public class UnitManager : MonoBehaviour
         unitList.Add(unit);
 
         if(unit.IsEnemy())
-        {
+        {            
             enemyUnitList.Add(unit);
         } else
         {
@@ -60,10 +62,31 @@ public class UnitManager : MonoBehaviour
         if (unit.IsEnemy())
         {
             enemyUnitList.Remove(unit);
+            if(enemyUnitList.Count == 0)
+            {
+                float temp = PlayerPrefs.GetFloat("material");
+                temp += 25;
+                PlayerPrefs.SetFloat("material", temp);
+
+                temp = PlayerPrefs.GetFloat("people");
+                temp += 10;
+                PlayerPrefs.SetFloat("people", temp);
+
+                temp = PlayerPrefs.GetFloat("food");
+                temp += 20;
+                PlayerPrefs.SetFloat("food", temp);
+
+
+                menu.ChangeScene("TownScene");
+            }
         }
         else
         {
             friendlyUnitList.Remove(unit);
+            if (friendlyUnitList.Count == 0)
+            {
+                menu.ChangeScene("TownScene");
+            }
         }
     }
 

@@ -80,7 +80,7 @@ public class MoveAction : BaseAction
                 GridPosition offsetGridPosition = new GridPosition(x,z);
                 GridPosition testGridPosition = unitGridPosition + offsetGridPosition;
 
-                if(!LevelGrid.Instance.IsValidGRidPosition(testGridPosition))
+                if(!LevelGrid.Instance.IsValidGridPosition(testGridPosition))
                 {
                     continue;
                 }
@@ -125,8 +125,32 @@ public class MoveAction : BaseAction
 
     public override EnemyAIAction GetBestEnemyAIAction(GridPosition gridPosition)
     {
-        int targetCountAtGridPosition = unit.GetShootAction().GetTargetCountAtPosition(gridPosition);       
+        
+        int targetCountAtGridPosition = unit.GetShootAction().GetTargetCountAtPosition(gridPosition);
+        /*
+        List<Unit> targetUnitList = UnitManager.Instance.GetFriendlyUnitList();
+        
+        Vector3 unitPosition = LevelGrid.Instance.GetWorldPosition(gridPosition);
+        Vector3 targetUnitPosition = new Vector3(0, 0, 0);
 
+        foreach (Unit targetUnit in targetUnitList)
+        {
+            Vector3 test = targetUnit.GetWorldPosition();
+            if (Vector3.Distance(test, unitPosition) < Vector3.Distance(targetUnitPosition, unitPosition))
+            {
+                targetUnitPosition = test;
+            }
+        }
+
+
+        GridPosition closestPosition = LevelGrid.Instance.GetGridPosition(targetUnitPosition);
+
+        if (LevelGrid.Instance.HasAnyUnitOnGridPosition(closestPosition))
+        {            
+            closestPosition.z++;
+            LevelGrid.Instance.AddUnitAtGridPosition(closestPosition, GetUnit());
+        }
+        */
         return new EnemyAIAction
         {
             gridPosition = gridPosition,
