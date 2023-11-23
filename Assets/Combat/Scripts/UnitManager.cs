@@ -64,6 +64,19 @@ public class UnitManager : MonoBehaviour
             enemyUnitList.Remove(unit);
             if(enemyUnitList.Count == 0)
             {
+                float temp = PlayerPrefs.GetFloat("material");
+                temp += 25;
+                PlayerPrefs.SetFloat("material", temp);
+
+                temp = PlayerPrefs.GetFloat("people");
+                temp += 10;
+                PlayerPrefs.SetFloat("people", temp);
+
+                temp = PlayerPrefs.GetFloat("food");
+                temp += 20;
+                PlayerPrefs.SetFloat("food", temp);
+
+
                 menu.ChangeScene("TownScene");
             }
         }
