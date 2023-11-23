@@ -96,7 +96,7 @@ public class MeleeAction : BaseAction
     {
         OnMelee?.Invoke(this, new OnMeleeEventArgs { targetUnit = targetUnit, shootingUnit = unit});
 
-        targetUnit.Damage(damage);
+        targetUnit.Damage(damage + PlayerPrefs.GetInt("attackBonus"));
     }
     public override string GetActionName()
     {
